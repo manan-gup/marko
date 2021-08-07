@@ -257,7 +257,7 @@ export const translate = {
       );
       const rendererIdentifier = importDefault(
         file,
-        "marko/src/runtime/components/renderer",
+        "marko/src/runtime/components/renderer.js",
         "marko_renderer"
       );
       const templateRendererMember = t.memberExpression(
@@ -287,7 +287,7 @@ export const translate = {
             t.stringLiteral(
               `marko/${markoOpts.optimize ? "dist" : "src"}/runtime/${
                 isHTML ? "html" : "vdom"
-              }${markoOpts.hot ? "/hot-reload" : ""}`
+              }/${markoOpts.hot ? "hot-reload.js" : "index.js"}`
             )
           ),
           t.variableDeclaration("const", [
@@ -405,7 +405,7 @@ export const translate = {
               t.callExpression(
                 importDefault(
                   file,
-                  "marko/src/runtime/components/defineComponent",
+                  "marko/src/runtime/components/defineComponent.js",
                   "marko_defineComponent"
                 ),
                 [componentIdentifier, templateRendererMember]
